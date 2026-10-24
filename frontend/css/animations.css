@@ -1,0 +1,150 @@
+/* Dynamic Cyber & 3D Floating Animations */
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--neon-emerald);
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.7;
+    box-shadow: 0 0 20px var(--neon-emerald);
+  }
+}
+
+/* Float 3D Badges with organic variations */
+@keyframes float-badge-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate3d(1, 1, 0, 8deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate3d(1, 1, 0, 14deg);
+  }
+}
+
+@keyframes float-badge-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate3d(-1, 1, 0, 10deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate3d(-1, 1, 0, 4deg);
+  }
+}
+
+@keyframes float-badge-3 {
+  0%, 100% {
+    transform: translateY(0px) rotate3d(1, -1, 0, 12deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate3d(1, -1, 0, 6deg);
+  }
+}
+
+@keyframes float-badge-4 {
+  0%, 100% {
+    transform: translateY(0px) rotate3d(-1, -1, 0, 9deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate3d(-1, -1, 0, 15deg);
+  }
+}
+
+/* Developer Portrait Breathing Glow */
+@keyframes aura-breath {
+  0%, 100% {
+    filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.25)) drop-shadow(0 0 50px rgba(139, 92, 246, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 45px rgba(0, 240, 255, 0.45)) drop-shadow(0 0 85px rgba(139, 92, 246, 0.35));
+  }
+}
+
+/* Perspective Grid Receding Animation */
+@keyframes grid-recede {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 60px;
+  }
+}
+
+/* Hologram Scanning Line */
+@keyframes scanline-sweep {
+  0% {
+    top: -20%;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    top: 120%;
+    opacity: 0;
+  }
+}
+
+/* Rotating Radar / Rings for Chatbot */
+@keyframes rotate-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-counter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Shimmer Light */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Glowing Border Pulse */
+@keyframes border-glow-pulse {
+  0%, 100% {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+  }
+  50% {
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+  }
+}
+
+.anim-float-1 {
+  animation: float-badge-1 6s ease-in-out infinite;
+}
+
+.anim-float-2 {
+  animation: float-badge-2 7s ease-in-out infinite 0.5s;
+}
+
+.anim-float-3 {
+  animation: float-badge-3 6.5s ease-in-out infinite 1s;
+}
+
+.anim-float-4 {
+  animation: float-badge-4 7.5s ease-in-out infinite 1.5s;
+}
+
+.anim-pulse-border {
+  animation: border-glow-pulse 4s ease-in-out infinite;
+}

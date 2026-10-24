@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<!-- QUICK EDIT MAP
+  Projects + sample measurements: search for "portfolio-demo-data" near the bottom.
+  Company names / dates / responsibilities: search for id="experience".
+  Skills: search for id="stack". Education: search for id="about".
+  Certificates: search for id="certifications"; replace sample titles, issuers, dates, and disabled links.
+  Email + resume: set email / resumeUrl inside portfolio-demo-data.
+  Keep css/glassmorphism.css, css/animations.css, css/chatbot.css, js/neural-canvas.js,
+  and the existing assets folder. No main.js or chatbot.js replacement is needed.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parita Chauhan | AI / ML Developer</title>
+  <meta name="description" content="Parita Chauhan — AI / ML Developer. Explore projects, experience, skills, and learning. Demo portfolio content is clearly labeled.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/neural_core.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/glassmorphism.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/skills-stream.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/certificate-carousel.css?v=1">
+</head>
+<body class="portfolio-demo">
+
+  <!-- Cursor Spotlight Glow -->
+  <div id="cursor-glow"></div>
+
+  <!-- Neural Canvas Particle Background -->
+  <canvas id="neural-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- =========================================================
+         LEFT SIDE NAVIGATION BAR (Vertical Glass Dock)
+         ========================================================= -->
+    <nav class="nav-sidebar" aria-label="Main Navigation">
+      <!-- Top Brand / Neural Core -->
+
+
+      <!-- Middle Navigation Links -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#hero" class="nav-link active" title="Home" aria-label="Home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span class="nav-tooltip">Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#projects" class="nav-link" title="Projects" aria-label="Projects">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M10 12v3h4v-3"/></svg>
+            <span class="nav-tooltip">Projects</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#experience" class="nav-link" title="Experience" aria-label="Experience">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <span class="nav-tooltip">Experience</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#stack" class="nav-link" title="Skills" aria-label="Skills">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 10 5-10 5L2 8zM2 12l10 5 10-5M2 16l10 5 10-5"/></svg>
+            <span class="nav-tooltip">Skills</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link" title="About & Education" aria-label="About & Education">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg>
+            <span class="nav-tooltip">About & Education</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#certifications" class="nav-link" title="Certifications" aria-label="Certifications">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8 14-2 8 6-3 6 3-2-8M9 9l2 2 4-4"/></svg>
+            <span class="nav-tooltip">Certifications</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link" title="Contact" aria-label="Contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span class="nav-tooltip">Contact</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Bottom Dock Controls -->
+      <div class="nav-footer-controls">
+        <a href="https://github.com/pari12-1" target="_blank" rel="noreferrer" class="nav-tool-btn" title="GitHub Profile">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/parita-chauhan-474132291/" target="_blank" rel="noreferrer" class="nav-tool-btn" title="LinkedIn Profile">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+                    
+           <!-- LeetCode Profile -->
+        <a
+          href="https://leetcode.com/u/parita__33/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-tool-btn"
+          title="LeetCode Profile"
+          aria-label="Open Parita’s LeetCode profile"
+        >
+          <img
+            src="https://cdn.simpleicons.org/leetcode/64748B"
+            alt=""
+            width="18"
+            height="18"
+          >
+        </a>
+        </a>
+      </div>
+    </nav>
+
+    <!-- =========================================================
+         MAIN CONTENT AREA
+         ========================================================= -->
+    <main class="main-content">
+
+      <!-- =======================================================
+           HERO / FIRST PAGE (POSTER STYLE & AI NEURAL CORE)
+           ======================================================= -->
+          <section id="hero" class="hero-section hero-with-contact hero-with-portrait">
+
+            <!-- Top contact bar -->
+            <div class="hero-contact-bar">
+
+              <div class="hero-email-pill">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=paritachauhan533%40gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Write to Parita in Gmail"
+                >
+                  <span class="hero-email-label">email:</span>
+                  <span id="portfolio-email-address">paritachauhan533@gmail.com</span>
+                </a>
+
+                <button
+                  type="button"
+                  id="copy-portfolio-email"
+                  class="hero-copy-button"
+                  aria-label="Copy email address"
+                  title="Copy email address"
+                >
+                  <svg
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="8" y="8" width="12" height="12" rx="2"/>
+                    <path d="M16 8V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/>
+                  </svg>
+                </button>
+
+                <span
+                  id="email-copy-feedback"
+                  class="hero-copy-feedback"
+                  role="status"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <a href="#contact" class="hero-get-in-touch">
+                Get in touch
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17 17 7M7 7h10v10"/>
+                </svg>
+              </a>
+
+            </div>
+        <!-- Receding 3D Perspective Grid Background (Ceiling & Floor) -->
+        <div class="perspective-grid-top"></div>
+        <div class="perspective-grid-bottom"></div>
+
+        <!-- Giant Backdrop Poster Typography -->
+        <div class="hero-backdrop-typography">
+          <div class="hero-sub-motto">“From raw data to autonomous intelligence.”</div>
+          <div class="hero-giant-title">
+            <span class="accent">AI / ML</span>
+          </div>
+          <div class="hero-giant-title">
+            <span class="accent">Developer</span>
+          </div>
+        </div>
+
+        <!-- Central Stage with 3D Holographic AI Neural Core & Floating Badges -->
+        <div class="hero-stage">
+
+          <!-- Top Telemetry HUD -->
+          <div class="hero-hud-top">
+          <div class="hero-nameplate">
+            <h1 class="hero-signature">
+            <span class="signature-first">Parita</span>
+            <span class="signature-last">Chauhan</span>
+          </h1>
+          </div>
+        </div>
+
+          <!-- Empty spacer — preserves hero height for badge layout (sphere removed) -->
+          <div class="hero-core-stage"></div>
+
+
+
+          <!-- Bottom Stage Hero Nameplate & Actions -->
+          <div class="hero-hud-bottom">
+            <div class="hero-nameplate">
+              <p>Building practical AI applications that turn ideas into working solutions.</p>
+              <p class="demo-experience-line"></p>
+            </div>
+
+            <div class="hero-cta-group">
+              <!-- EDIT: set resumeUrl in PORTFOLIO_DEMO below to enable this link. -->
+              <a id="resume-link" class="btn-cyber-secondary" role="link" aria-disabled="true">Resume · coming soon</a>
+              <a href="#projects" class="btn-cyber-primary">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                View Projects
+              </a>
+              <button class="btn-cyber-secondary" onclick="document.querySelector('.chatbot-trigger').click()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                Ask About My Work
+              </button>
+              <a href="#contact" class="btn-cyber-secondary">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+                Contact Me
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <button
+  type="button"
+  class="hero-portrait-card"
+  id="hero-portrait-card"
+  aria-label="Photo and avatar of Parita Chauhan. Pause automatic flipping"
+  aria-pressed="false"
+  title="Click to pause or resume"
+>
+  <span class="hero-portrait-inner" aria-hidden="true">
+
+    <span class="hero-portrait-face hero-portrait-front">
+      <img
+        src="assets/images/parita-photo.png"
+        alt=""
+        width="800"
+        height="1000"
+      >
+    </span>
+
+    <span class="hero-portrait-face hero-portrait-back">
+      <img
+        src="assets/images/parita-avatar.png"
+        alt=""
+        width="800"
+        height="1000"
+      >
+    </span>
+
+  </span>
+</button>
+      </section>
+
+
+      <section id="projects" class="content-section">
+        <div class="section-header">
+          <div class="glow-pill">SELECTED WORK</div>
+          <h2 class="section-title">Projects &amp; Case Studies</h2>
+          <p class="section-subtitle">A closer look at the problem, the implementation, and the lessons learned.</p>
+          <p class="section-subtitle projects-intro">
+          A selection of projects showcasing my approach to solving real-world problems
+          through web development, AI, and automation.
+        </p>
+        </div>
+           <div class="filter-tabs" aria-label="Filter projects">
+          
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">
+            All Projects
+          </button>
+
+          <button class="filter-btn" data-filter="group">
+            Grouped Projects
+          </button>
+
+          <button class="filter-btn" data-filter="solo">
+            Solo Projects
+          </button>
+        </div>
+        </div>
+        <div id="demo-projects" class="projects-grid"></div>
+        <noscript><p class="demo-note">Enable JavaScript to view the three demo project cards and their case studies.</p></noscript>
+      </section>
+
+
+      <section id="experience" class="content-section">
+  <div class="section-header">
+    <span class="section-tag">CAREER JOURNEY</span>
+    <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+    <p class="section-subtitle">
+      My professional journey in AI, machine learning, and automation.
+    </p>
+  </div>
+
+  <div class="experience-slider" id="experienceSlider">
+    <div class="experience-slider__track">
+
+      <!-- Experience 1 -->
+      <article
+        class="glass-panel stack-card demo-experience-card experience-slide is-current"
+        data-index="0"
+      >
+        <div class="experience-slide__number">01 / EXPERIENCE</div>
+
+        <div class="stack-card-header">
+          <span class="tech-tag">Full-time</span>
+          <span class="tech-tag">AI / ML</span>
+        </div>
+
+        <h3 class="stack-card-title">AI/ML Developer</h3>
+
+        <p class="demo-company">
+          We3vision Private Limited
+        </p>
+
+        <p class="demo-meta">
+          June 2026 – Present · Surat, India · On-site
+        </p>
+
+        <p class="stack-card-desc">
+          Working on AI and machine learning solutions, intelligent
+          automation, and practical applications designed to solve
+          real-world business problems.
+        </p>
+
+        <ul class="demo-list">
+          <li>Develop AI/ML solutions and intelligent application workflows.</li>
+          <li>Work with data processing, model integration, and automation.</li>
+          <li>Build and improve AI-powered features for business applications.</li>
+        </ul>
+
+        <div class="project-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">AI Automation</span>
+          <span class="tech-tag">API Integration</span>
+        </div>
+      </article>
+
+      <!-- Experience 2 -->
+      <article
+        class="glass-panel stack-card demo-experience-card experience-slide"
+        data-index="1"
+      >
+        <div class="experience-slide__number">02 / EXPERIENCE</div>
+
+        <div class="stack-card-header">
+          <span class="tech-tag">Leadership</span>
+          <span class="tech-tag">International Relations</span>
+        </div>
+
+        <h3 class="stack-card-title">IR Manager</h3>
+
+        <p class="demo-company">
+          AIESEC in India
+        </p>
+
+        <p class="demo-meta">
+          July 2025 – July 2026
+        </p>
+
+        <p class="stack-card-desc">
+          Managed international relations and cross-cultural collaboration,
+          supporting communication and coordination with international
+          stakeholders.
+        </p>
+
+        <ul class="demo-list">
+          <li>Coordinated communication with international partners.</li>
+          <li>Supported relationship management and collaboration across teams.</li>
+          <li>Helped coordinate international opportunities and initiatives.</li>
+        </ul>
+
+        <div class="project-tags">
+          <span class="tech-tag">Communication</span>
+          <span class="tech-tag">Leadership</span>
+          <span class="tech-tag">Stakeholder Management</span>
+          <span class="tech-tag">Team Coordination</span>
+        </div>
+      </article>
+
+      <!-- Experience 3 -->
+      <article
+        class="glass-panel stack-card demo-experience-card experience-slide"
+        data-index="2"
+      >
+        <div class="experience-slide__number">03 / EXPERIENCE</div>
+
+        <div class="stack-card-header">
+          <span class="tech-tag">Internship</span>
+          <span class="tech-tag">AI & Automation</span>
+        </div>
+
+        <h3 class="stack-card-title">AI and Automation Intern</h3>
+
+        <p class="demo-company">
+          Mama Media
+        </p>
+
+        <p class="demo-meta">
+          December 2025 · 1 month
+        </p>
+
+        <p class="stack-card-desc">
+          Explored AI-powered workflows and automation approaches to improve
+          operational efficiency and simplify repetitive tasks.
+        </p>
+
+        <ul class="demo-list">
+          <li>Worked with AI-assisted tools and automation workflows.</li>
+          <li>Explored ways to streamline repetitive processes.</li>
+          <li>Gained practical exposure to applying AI in business workflows.</li>
+        </ul>
+
+        <div class="project-tags">
+          <span class="tech-tag">Artificial Intelligence</span>
+          <span class="tech-tag">Automation</span>
+          <span class="tech-tag">Workflow Optimization</span>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Numbered navigation -->
+    <ol class="experience-indicator" aria-label="Experience navigation">
+      <li class="is-active">
+        <button
+          type="button"
+          class="experience-indicator__index expand"
+          data-target="0"
+          aria-label="Show experience 1"
+          aria-current="step"
+        >01</button>
+      </li>
+
+      <li>
+        <button
+          type="button"
+          class="experience-indicator__index"
+          data-target="1"
+          aria-label="Show experience 2"
+        >02</button>
+      </li>
+
+      <li>
+        <button
+          type="button"
+          class="experience-indicator__index"
+          data-target="2"
+          aria-label="Show experience 3"
+        >03</button>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+
+
+
+      <section id="stack" class="content-section">
+  <div class="section-header">
+    <div class="glow-pill">MY TOOLKIT</div>
+    <h2 class="section-title">Skills &amp; Technologies</h2>
+    <p class="section-subtitle">
+      The languages, frameworks, and tools I use across
+      AI applications and web development.
+    </p>
+  </div>
+
+  <div class="stack-grid">
+
+    <!-- Backend -->
+    <article class="skills-stream-wrapper">
+      
+<div class="skills-stream" id="skillsStream">
+  <canvas class="skills-stream__particles" id="skillsStreamParticles" aria-hidden="true"></canvas>
+  <div class="skills-stream__scanline" aria-hidden="true"></div>
+
+  <div class="skills-stream__track" id="skillsStreamTrack">
+    
+  <article
+    class="skills-stream__card"
+    data-code="from fastapi import FastAPI&#10;app = FastAPI()&#10;@app.get('/health')&#10;def health():&#10;    return {'status': 'ok'}"
+  >     
+      <div class="skills-stream__eyebrow">01 / BACKEND</div>
+      <h3>Python &amp; Backend Development</h3>
+      <p>Application logic, backend services, and API development.</p>
+      <div class="skills-stream__tags">
+        <span>Python</span><span>FastAPI</span><span>Django</span>
+      </div>
+    </article>
+
+    <article class="skills-stream__card" data-code="retriever = vector_store.as_retriever()&#10;response = llm.invoke(context)&#10;# speech interface ready">
+      <div class="skills-stream__eyebrow">02 / AI APPLICATIONS</div>
+      <h3>Generative AI &amp; Voice</h3>
+      <p>LLM integration, retrieval-augmented generation, and speech interfaces.</p>
+      <div class="skills-stream__tags">
+        <span>LLMs</span><span>RAG</span><span>Text-to-Speech (TTS)</span><span>Speech-to-Text (STT)</span>
+      </div>
+    </article>
+
+    <article class="skills-stream__card" data-code="image = cv2.imread(path)&#10;gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)&#10;text = ocr_engine.readtext(gray)">
+      <div class="skills-stream__eyebrow">03 / COMPUTER VISION</div>
+      <h3>Image Processing &amp; Recognition</h3>
+      <p>Extracting text from images, processing visual inputs, and image recognition.</p>
+      <div class="skills-stream__tags">
+        <span>OCR</span><span>OpenCV</span><span>Image Recognition</span>
+      </div>
+    </article>
+
+    <article class="skills-stream__card" data-code="async def query_store(query):&#10;    embedding = embed(query)&#10;    return await db.search(embedding)">
+      <div class="skills-stream__eyebrow">04 / DATA &amp; STORAGE</div>
+      <h3>Databases &amp; Vector Search</h3>
+      <p>Relational data storage, application data services, and vector retrieval.</p>
+      <div class="skills-stream__tags">
+        <span>MySQL</span><span>Supabase</span><span>ChromaDB</span><span>PostgreSQL</span>
+      </div>
+    </article>
+
+    <article class="skills-stream__card" data-code="export default function App() {&#10;  return <main><Dashboard /></main>&#10;}">
+      <div class="skills-stream__eyebrow">05 / FRONTEND</div>
+      <h3>Web Interfaces</h3>
+      <p>Building and styling interactive interfaces for web applications.</p>
+      <div class="skills-stream__tags">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Next.js</span>
+      </div>
+    </article>
+
+    <article class="skills-stream__card" data-code="git status&#10;git add .&#10;git commit -m 'release'&#10;git push origin main">
+      <div class="skills-stream__eyebrow">06 / TOOLS &amp; DEPLOYMENT</div>
+      <h3>Version Control &amp; Hosting</h3>
+      <p>Managing code changes, maintaining repositories, and deploying applications.</p>
+      <div class="skills-stream__tags">
+        <span>Git</span><span>GitHub</span><span>Vercel</span><span>Render</span><span>Railway</span>
+      </div>
+    </article>
+  </div>
+
+  <div class="skills-stream__hint" aria-hidden="true">
+    <span></span> DRAG TO EXPLORE <span></span>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+
+
+
+      <section id="about" class="content-section">
+        <div class="section-header">
+          <div class="glow-pill">BEHIND THE WORK</div>
+          <h2 class="section-title">About Me &amp; Education</h2>
+          <p class="section-subtitle">A little context about my background and the direction I want to grow.</p>
+        </div>
+        
+        <div class="stack-grid">
+          <article class="glass-panel stack-card">
+            <span class="glow-pill">ABOUT ME</span>
+            <h3 class="stack-card-title">Hi, I’m Parita.</h3>
+            <p class="stack-card-desc">
+            I’m Parita Chauhan, an AI / ML Developer at We3vision Private
+            Limited. My background includes an AI and Automation internship
+            at Mama Media and experience coordinating international
+            communication as an IR Manager at AIESEC in India.
+          </p>
+
+          <p class="stack-card-desc">
+            My technical background includes Python, FastAPI, Django,
+            Flask, and REST APIs, alongside LLMs, retrieval-augmented
+            generation (RAG), natural language processing (NLP),
+            MySQL, and vector databases.
+          </p>
+
+          <p class="demo-meta">
+            Interested in AI / ML development and automation opportunities.
+          </p>
+          <p class="demo-meta">Surat , AI/ML Developer</p>
+          </article>
+                <article class="glass-panel stack-card">
+        <span class="glow-pill purple">EDUCATION</span>
+
+        <h3 class="stack-card-title">
+          Bachelor’s Degree in Computer Science
+        </h3>
+
+        <p class="demo-company">
+          Vanita Vishram Women University
+        </p>
+
+        <p class="demo-meta">July 2023 – April 2026</p>
+
+        <p class="stack-card-desc">
+          Completed my bachelor’s degree, developing technical knowledge,
+          practical skills, communication, and team leadership.
+        </p>
+
+        <div class="project-tags">
+          <span class="tech-tag">Computer Science</span>
+          <span class="tech-tag">Communication</span>
+          <span class="tech-tag">Team Leadership</span>
+        </div>
+      </article>
+        </div>
+      </section>
+
+          
+<section id="certifications" class="content-section">
+  <div class="section-header">
+    <div class="glow-pill">LEARNING &amp; RECOGNITION</div>
+    <h2 class="section-title">Certifications &amp; Achievements</h2>
+    <p class="section-subtitle">
+      Training, practical challenges, and recognition from my journey.
+    </p>
+  </div>
+
+  <div class="certificate-carousel">
+    <div class="certificate-carousel-viewport">
+      <div class="certificate-carousel-track">
+
+        <!-- 1. AWS AI Practitioner -->
+        <article class="certificate-carousel-card">
+          <div class="certificate-image-container">
+            <a href="assets/certificates/aws-ai-practitioner.png"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open AWS AI Practitioner certificate">
+              <img src="assets/certificates/aws-ai-practitioner.png"
+                   alt="AWS Skills Centers Becoming an AI Practitioner certificate"
+                   class="certificate-image" loading="lazy">
+            </a>
+          </div>
+
+          <div class="certificate-card-content">
+            <span class="certificate-category">AI TRAINING</span>
+            <h3 class="certificate-card-title" data-text="Becoming an AI Practitioner">
+              Becoming an AI Practitioner
+            </h3>
+            <p class="certificate-description">
+              Completed training covering AI, generative AI, foundation models,
+              and responsible AI practices.
+            </p>
+            <div class="certificate-progress">
+              <div class="certificate-progress-value" style="width:100%"></div>
+            </div>
+            <div class="certificate-stats">
+              <span>AWS SKILLS CENTERS</span>
+              <span>COMPLETED</span>
+            </div>
+          </div>
+
+          <div class="certificate-tech-details">
+            <span class="certificate-tech-tag">Amazon SageMaker AI</span>
+            <span class="certificate-tech-tag">Amazon Bedrock</span>
+            <span class="certificate-tech-tag">Amazon Q</span>
+            <span class="certificate-tech-tag">Responsible AI</span>
+          </div>
+        </article>
+
+        <!-- 2. Sprint Web Using AI -->
+        <article class="certificate-carousel-card">
+          <div class="certificate-image-container">
+            <a href="assets/certificates/ai-web-competition.png"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open Sprint Web Using AI award">
+              <img src="assets/certificates/ai-web-competition.png"
+                   alt="Sprint Web Using AI first-place award"
+                   class="certificate-image" loading="lazy">
+            </a>
+          </div>
+
+          <div class="certificate-card-content">
+            <span class="certificate-category">FIRST PLACE</span>
+            <h3 class="certificate-card-title" data-text="Sprint Web Using AI">
+              Sprint Web Using AI
+            </h3>
+            <p class="certificate-description">
+              Secured first place in a website development competition
+              using AI at Techfest, Vanita Vishram Women University.
+            </p>
+            <div class="certificate-progress">
+              <div class="certificate-progress-value" style="width:100%"></div>
+            </div>
+            <div class="certificate-stats">
+              <span>TECHFEST</span>
+              <span>1ST PLACE</span>
+            </div>
+          </div>
+
+          <div class="certificate-tech-details">
+            <span class="certificate-tech-tag">AI-Powered Website</span>
+            <span class="certificate-tech-tag">Web Development</span>
+            <span class="certificate-tech-tag">AI Chatbot</span>
+          </div>
+        </article>
+
+        <!-- 3. CyberCoach Hackathon -->
+        <article class="certificate-carousel-card">
+          <div class="certificate-image-container">
+            <a href="assets/certificates/cybercoach-hackathon.png"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open CyberCoach hackathon certificate">
+              <img src="assets/certificates/cybercoach-hackathon.png"
+                   alt="CyberCoach cybersecurity awareness hackathon certificate"
+                   class="certificate-image" loading="lazy">
+            </a>
+          </div>
+
+          <div class="certificate-card-content">
+            <span class="certificate-category">HACKATHON</span>
+            <h3 class="certificate-card-title" data-text="CyberCoach">
+              CyberCoach — Cybersecurity Awareness
+            </h3>
+            <p class="certificate-description">
+              Collaborated on an educational website focused on cybersecurity
+              awareness and practical online safety.
+            </p>
+            <div class="certificate-progress">
+              <div class="certificate-progress-value" style="width:100%"></div>
+            </div>
+            <div class="certificate-stats">
+              <span>CYBERSECURITY</span>
+              <span>PARTICIPATION</span>
+            </div>
+          </div>
+
+          <div class="certificate-tech-details">
+            <span class="certificate-tech-tag">Python</span>
+            <span class="certificate-tech-tag">Django</span>
+            <span class="certificate-tech-tag">Fraud Email Checker</span>
+            <span class="certificate-tech-tag">Password Safety</span>
+          </div>
+        </article>
+
+        <!-- 4. Employability Skill Training -->
+        <article class="certificate-carousel-card">
+          <div class="certificate-image-container">
+            <a href="assets/certificates/employability-training.png"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open employability skill training certificate">
+              <img src="assets/certificates/employability-training.png"
+                   alt="Employability Skill Training certificate"
+                   class="certificate-image" loading="lazy">
+            </a>
+          </div>
+
+          <div class="certificate-card-content">
+            <span class="certificate-category">PROFESSIONAL DEVELOPMENT</span>
+            <h3 class="certificate-card-title" data-text="Employability Skill Training">
+              Employability Skill Training
+            </h3>
+            <p class="certificate-description">
+              Completed career-readiness training focused on communication,
+              professional confidence, and workplace skills.
+            </p>
+            <div class="certificate-progress">
+              <div class="certificate-progress-value" style="width:100%"></div>
+            </div>
+            <div class="certificate-stats">
+              <span>MAHINDRA PRIDE</span>
+              <span>COMPLETED</span>
+            </div>
+          </div>
+
+          <div class="certificate-tech-details">
+            <span class="certificate-tech-tag">Communication</span>
+            <span class="certificate-tech-tag">Public Speaking</span>
+            <span class="certificate-tech-tag">Teamwork</span>
+            <span class="certificate-tech-tag">Interview Preparation</span>
+          </div>
+        </article>
+
+        <!-- 5. AIESEC Commendation -->
+        <article class="certificate-carousel-card">
+          <div class="certificate-image-container">
+            <a href="assets/certificates/aiesec-commendation.png"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Open AIESEC certificate of commendation">
+              <img src="assets/certificates/aiesec-commendation.png"
+                   alt="AIESEC in Surat certificate of commendation"
+                   class="certificate-image" loading="lazy">
+            </a>
+          </div>
+
+          <div class="certificate-card-content">
+            <span class="certificate-category">LEADERSHIP RECOGNITION</span>
+            <h3 class="certificate-card-title" data-text="Certificate of Commendation">
+              Certificate of Commendation
+            </h3>
+            <p class="certificate-description">
+              Recognized for contributions to international relations,
+              team coordination, and relationship building at AIESEC in Surat.
+            </p>
+            <div class="certificate-progress">
+              <div class="certificate-progress-value" style="width:100%"></div>
+            </div>
+            <div class="certificate-stats">
+              <span>AIESEC IN SURAT</span>
+              <span>RECOGNITION</span>
+            </div>
+          </div>
+
+          <div class="certificate-tech-details">
+            <span class="certificate-tech-tag">International Relations</span>
+            <span class="certificate-tech-tag">Team Coordination</span>
+            <span class="certificate-tech-tag">Communication</span>
+            <span class="certificate-tech-tag">Leadership</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <button class="certificate-carousel-button prev" type="button"
+            aria-label="Previous certificate">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15.75 19.5 8.25 12l7.5-7.5"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <button class="certificate-carousel-button next" type="button"
+            aria-label="Next certificate">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="certificate-carousel-indicators"
+         aria-label="Choose a certificate"></div>
+
+    <p class="certificate-carousel-status" aria-live="polite">
+      Certificate 1 of 5
+    </p>
+  </div>
+</section>
+
+
+      <section
+  id="contact"
+  class="content-section"
+  style="background: rgba(8, 12, 20, 0.6);"
+>
+  <div class="section-header">
+    <div class="glow-pill emerald">DISPATCH & TERMINAL</div>
+
+    <h2 class="section-title">Connect with Parita</h2>
+
+    <p class="section-subtitle">
+      Let’s connect about AI / ML development, automation,
+      and opportunities to build practical solutions.
+    </p>
+  </div>
+
+  <div class="contact-wrapper">
+
+    <!-- LEFT: Original terminal design -->
+    <div class="cyber-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+        </div>
+
+        <div class="terminal-title">
+          parita@portfolio: ~ (bash)
+        </div>
+
+        <div style="font-size: 0.7rem; color: var(--neon-emerald);">
+          ONLINE
+        </div>
+      </div>
+
+      <div
+        id="terminal-logs"
+        class="terminal-body"
+        role="log"
+        aria-live="polite"
+        aria-label="Portfolio terminal output"
+      >
+        <div>Welcome to Parita’s Portfolio Terminal.</div>
+
+        <div style="color: #94a3b8;">
+          Type <span style="color: #00f0ff;">help</span>
+          to explore projects, skills, experience, and contact details.
+        </div>
+
+        <br>
+      </div>
+
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">parita@portfolio:~$</span>
+
+        <input
+          type="text"
+          id="terminal-input"
+          class="terminal-cli-input"
+          placeholder="type 'help'..."
+          aria-label="Terminal command"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+    </div>
+
+    <!-- RIGHT: Original glass contact form design -->
+    <div class="glass-panel contact-form">
+      <h3 style="font-family: var(--font-display); font-size: 1.3rem;">
+        Let’s Work Together
+      </h3>
+
+      <p style="color: var(--text-secondary); font-size: 0.88rem;">
+        Looking for an AI / ML Developer for your team or project?
+        Share your company name, the opportunity, and how I can help.
+      </p>
+
+      <p class="demo-meta">
+        Email:
+        <span id="demo-email">[Add your professional email]</span>
+      </p>
+
+      <!-- Keep this ID for compatibility with your current demo script. -->
+          <form
+            id="demo-contact-form"
+            action="https://formspree.io/f/xzedzagq"
+            method="POST"
+          >        <div class="form-group">
+          <label for="contact-name" class="form-label">
+            Full Name / Organization
+          </label>
+
+          <input
+            type="text"
+            id="contact-name"
+            name="name"
+            class="form-input"
+            placeholder="Your name or organization"
+            minlength="2"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email" class="form-label">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="contact-email"
+            name="email"
+            class="form-input"
+            placeholder="you@example.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message" class="form-label">
+            Project Details / Inquiry
+          </label>
+
+          <textarea
+            id="contact-message"
+            name="message"
+            class="form-textarea"
+            rows="4"
+            placeholder="Tell me about your company, the role or project, and the best way to connect with you."            minlength="5"
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          id="contact-submit-btn"
+          class="btn-cyber-primary"
+          style="width: 100%;"
+        >
+          Send the Encrypted Code
+        </button>
+
+        <div
+          id="contact-status"
+          role="status"
+          aria-live="polite"
+          style="
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            margin-top: 6px;
+          "
+        ></div>
+      </form>
+    </div>
+
+  </div>
+</section>
+<footer class="site-footer"><p>© 2026 Parita Chauhan · AI / ML Developer</p><p class="demo-meta">Portfolio preview · Sample projects, responsibilities, skills, and certificates are labeled.</p></footer></main>
+    <div id="project-modal" class="project-modal-backdrop" aria-hidden="true" aria-modal="true" aria-labelledby="modal-title" role="dialog">
+      <div class="project-modal-dialog">
+        <div class="modal-header"><div><span class="glow-pill purple">DEMO CASE STUDY</span><h2 id="modal-title" class="modal-title"></h2><p id="modal-subtitle" class="demo-meta"></p></div><button id="modal-close-btn" class="modal-close-btn" aria-label="Close project details">✕</button></div>
+        <div id="demo-modal-body" class="modal-body"></div>
+        <div class="modal-footer"><button id="demo-modal-close" class="btn-cyber-secondary">Close Case Study</button></div>
+      </div>
+    </div>
+    <div class="chatbot-wrapper">
+
+      <!-- Callout badge -->
+      <div class="chatbot-callout">
+        <span class="status-dot"></span>
+        Ask About My Work
+      </div>
+
+      <!-- Trigger button with rotating holographic rings -->
+      <button class="chatbot-trigger" aria-controls="portfolio-chat" aria-expanded="false" aria-label="Open portfolio FAQ">
+        <div class="chatbot-ring"></div>
+        <div class="chatbot-ring-inner"></div>
+        <svg
+          class="chatbot-avatar-img"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#00f0ff"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M20 14a4 4 0 0 1-4 4H9l-5 3V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4z"/>
+          <circle cx="8" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+          <circle cx="12" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+          <circle cx="16" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+        </svg>      </button>
+
+      <!-- Chatbot Interactive Glass Window -->
+      <div class="chatbot-window" id="portfolio-chat" aria-label="Portfolio assistant">
+        <!-- Header -->
+        <div class="chatbot-header">
+          <div class="chatbot-header-profile">
+            <div class="chatbot-header-avatar">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#00f0ff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M20 14a4 4 0 0 1-4 4H9l-5 3V7a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4z"/>
+              <circle cx="8" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+              <circle cx="12" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+              <circle cx="16" cy="10.5" r="1" fill="#00f0ff" stroke="none"/>
+            </svg>              
+            <div class="chatbot-header-status"></div>
+            </div>
+            <div>
+              <div class="chatbot-title">
+                Portfolio Assistant
+              </div>
+              <div class="chatbot-subtitle">AI Portfolio Assistant</div>
+            </div>
+          </div>
+
+          <div class="chatbot-header-actions">
+            <button class="chatbot-btn-icon chatbot-close-btn" title="Minimize assistant">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chat messages container -->
+        <div id="chat-messages" class="chatbot-messages" role="log" aria-live="polite" aria-label="Conversation">
+          <div class="chat-bubble assistant">Hi! Ask me about Parita’s experience or explore the demo projects and certificates. This is a rule-based FAQ preview.</div>
+        </div>
+
+        <!-- Suggestion Chips -->
+        <div id="chat-suggestions" class="chatbot-suggestions">
+          <!-- Injected dynamically by chatbot.js -->
+        </div>
+
+        <!-- Input Bar -->
+        <div class="chatbot-input-area">
+          <input type="text" id="chat-input" class="chatbot-input" aria-label="Message to portfolio assistant" placeholder="Ask about projects, experience, or skills..." autocomplete="off">
+          <button id="chat-send-btn" class="chatbot-send-btn" aria-label="Send Message">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- EDIT CONTENT HERE: change values and replace sample project descriptions with real work.
+       Empty links stay disabled. Use real https:// links or local relative asset paths.
+       Keep demo labels until the corresponding content has been verified.
+       This two-file demo uses its own inline controller instead of main.js / chatbot.js,
+       so older hardcoded projects and false contact confirmations cannot
+       
+       override it. -->
+  <script id="portfolio-demo-data" type="application/json">{
+  "name": "Parita Chauhan",
+  "role": "AI / ML Developer",
+  "aiMlMonths": 18,
+  "automationMonths": 1,
+  "email": "paritachauhan533@gmail.com",
+  "resumeUrl": "",
+  
+"projects": [
+ 
+{
+  "id": "carevoyage",
+  "number": "01",
+  "title": "CareVoyage",
+  "category": "Tourism & Healthcare",
+  "projectType": "solo",
+  "status": "Pending",
+  "filter": "solo",
+  "summary": "A travel healthcare assistance website that helps travellers find nearby hospitals, navigate to medical facilities, and overcome language barriers through translation and voice assistance.",
+  "preview": [
+    "Live Location",
+    "Nearby Hospitals",
+    "Directions",
+    "Language Translation"
+  ],
+  "tags": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "PostgreSQL",
+    "OAuth",
+    "Leaflet.js",
+    "OpenStreetMap",
+    "Web Speech API"
+  ],
+  "metrics": [
+    [
+      "Project Status",
+      "Work in Progress"
+    ]
+  ],
+  "problem": "Travellers visiting unfamiliar places may struggle to locate nearby hospitals, follow directions, and communicate with local people because of language barriers.",
+  "contribution": "Independently developing a website that combines hospital discovery, navigation, translation, and account management.",
+  "approach": "Uses live location, map-based hospital discovery, a translation endpoint, browser speech capabilities, and authentication with PostgreSQL-backed data storage.",
+  "architecture": "HTML, CSS, and JavaScript frontend; Leaflet.js map with CARTO Voyager tiles and OpenStreetMap data; translation through /api/translate; PostgreSQL for account data.",
+  "features": [
+    "Live location-based nearby hospital discovery",
+    "Interactive map and directions",
+    "Text translation through a backend endpoint",
+    "Voice input using the Web Speech API",
+    "Translated text playback using speech synthesis",
+    "Login, sign-up, OAuth, and email-based password recovery"
+  ],
+  "challenge": "Bringing location-based hospital discovery and multilingual communication together in one accessible website.",
+  "evaluation": "The project is still under development; final testing and evaluation are pending.",
+  "limitations": "Feature completeness, location accuracy, translation quality, and hospital data coverage require further testing.",
+  "learning": "Integrating mapping libraries, geographic data, browser speech APIs, authentication, and database-backed account management.",
+  "github": "",
+  "live": "",
+  "screenshot": ""
+},
+
+{
+  "id": "mini-ai-avatar",
+  "hidden": false,
+  "title": "Mini AI Avatar",
+  "projectType": "group",
+  "status": "Implemented",
+  "category": "Conversational AI",
+  "filter": "group",
+  "number": "02",
+  "summary": "An AI-powered chatbot with voice interaction and PDF-based question answering using RAG, paired with a visual avatar that changes its expressions based on the conversation.",
+  "tags": [
+    "Whisper",
+    "Piper TTS",
+    "Speech-to-Text",
+    "Text-to-Speech",
+    "RAG",
+    "PDF Question Answering"
+  ],
+  "preview": [
+    "VOICE INPUT",
+    "PDF + RAG",
+    "AI RESPONSE"
+  ],
+  "metrics": [
+    [
+      "Project Type",
+      "Group Project"
+    ],
+    [
+      "My Role",
+      "Chatbot Development"
+    ]
+  ],
+  "problem": "Traditional text-based chatbots can offer limited interaction for users who prefer speaking, and answering questions about specific documents requires a way to use the information contained in those documents.",
+  "contribution": "As part of a group project, I was responsible for chatbot development. My contributions included integrating Whisper for speech-to-text, Piper TTS for text-to-speech, and implementing RAG to support question answering from uploaded PDF documents. The chatbot also supports general-purpose questions.",
+  "approach": "Developed a conversational interface that accepts text and speech input, generates chatbot responses, and supports spoken output. Implemented a document-based question-answering workflow in which users upload a PDF and ask questions about its content using Retrieval-Augmented Generation (RAG).",
+  "architecture": "User text or speech input → Whisper speech recognition for voice input → chatbot processing. For document queries, the RAG workflow retrieves relevant information from an uploaded PDF and uses it to support the answer. Piper TTS converts text responses into speech when voice output is used. The visual avatar is a separate interface component of the overall group project.",
+  "features": [
+    "General-purpose conversational chatbot",
+    "Speech-to-text input using Whisper",
+    "Text-to-speech output using Piper TTS",
+    "PDF upload for document-based question answering",
+    "Retrieval-Augmented Generation (RAG) for answering questions using PDF content",
+    "Visual avatar with happy, sad, angry, thinking, and idle expressions",
+    "Chat interface positioned alongside the avatar"
+  ],
+  "challenge": "Combining conversational AI, voice interaction, and document-based question answering into one chatbot experience while keeping my contribution focused on chatbot development.",
+  "evaluation": "No formal evaluation metrics are provided. The chatbot can be evaluated through speech transcription quality, response relevance, and the accuracy of answers grounded in uploaded PDFs.",
+  "limitations": "Answer quality can depend on the content and readability of uploaded PDFs, the relevance of retrieved information, and the accuracy of speech recognition in different audio conditions.",
+  "learning": "Gained practical experience integrating speech recognition and speech synthesis with a conversational chatbot, and implementing RAG for document-based question answering.",
+  "github": "",
+  "live": "",
+  "screenshot": ""
+}, 
+
+
+{
+"id": "business-card-scanner",
+"title": "Business Card Scanner",
+"projectType": "group",
+"status": "Implemented",
+"category": "Automation & Web Enrichment",
+"filter": "group",
+"number": "03",
+"summary": "An automated business card scanning system that captures both sides of a card, extracts contact details, enriches the information through web searches, and saves a completed contact profile.",
+"tags": [
+"Python",
+"FastAPI",
+"Supabase",
+"DDGS",
+"HTTPX",
+"BeautifulSoup4",
+"Playwright",
+"Railway"
+],
+"preview": [
+"AUTO CAPTURE",
+"DATA EXTRACTION",
+"WEB ENRICHMENT"
+],
+"metrics": [
+[
+"Project Type",
+"Group Project"
+],
+[
+"My Role",
+"Website Design & Backend Integration"
+]
+],
+"problem": "Manually entering business card details into a contact management system is time-consuming and repetitive. Important information may also be missing from the card itself, requiring users to search for the person's online profiles and additional contact details.",
+"contribution": "As part of a group project, I designed and developed the website interface, implemented Supabase integration, worked with the FastAPI backend, built the configurable card-retention functionality, contributed to web-search enrichment, and deployed the application using Railway.",
+"approach": "Built a workflow that automatically captures the front and back of a business card when it is positioned in front of the camera. The system extracts the available contact information, then uses web search and website retrieval to discover additional details such as social media profiles and other publicly available information. The enriched data is populated into a form and saved for the user.",
+"architecture": "Camera capture → front-and-back card images → contact information extraction → DDGS-powered web search → information retrieval using HTTPX, BeautifulSoup4, and Playwright where appropriate → enriched contact form → FastAPI backend → Supabase storage. Railway is used to deploy the application. Users can configure how long their saved cards are retained.",
+"features": [
+"Automatic camera capture of business cards",
+"Capture and processing of both front and back sides",
+"Extraction of contact details from business cards",
+"Web search to discover additional publicly available information",
+"Enrichment with website links, email addresses, phone numbers, and social media profile URLs, including Instagram, Facebook, and LinkedIn",
+"Automatic population of a completed contact form",
+"Supabase integration for saving and managing scanned cards",
+"Profile-based retention settings of 1 day, 7 days, 30 days, or never expire",
+"Automatic removal of expired card records from Supabase",
+"Website deployment using Railway"
+],
+"challenge": "Bringing camera-based scanning, contact extraction, web search, information enrichment, database persistence, and configurable data retention together into a single workflow.",
+"evaluation": "The system can be evaluated by measuring contact extraction accuracy, the relevance of web-enriched information, the completeness of generated contact profiles, and whether records are deleted according to the selected retention period. No formal numerical evaluation results are provided.",
+"limitations": "The completeness of enriched contact profiles depends on the information available online, the quality of the captured card images, and whether search results can be matched to the correct person. Website structure and access restrictions can also affect information retrieval.",
+"learning": "Gained practical experience in full website development, FastAPI integration, Supabase database operations, web scraping and search-based enrichment, scheduled data-retention logic, and application deployment using Railway.",
+"github": "",
+"live": "",
+"screenshot": ""
+}
+
+]
+  
+}
+</script>
+  <script src="js/neural-canvas.js"></script>
+  <script src="js/ai-workbench.js"></script>
+  <script>
+(() => {
+  'use strict';
+  const PORTFOLIO_DEMO = JSON.parse(document.getElementById('portfolio-demo-data').textContent);
+  const $ = (selector) => document.querySelector(selector);
+  const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const safeURL = value => {
+    if (!value || !value.trim()) return '';
+    try { const url = new URL(value, document.baseURI); return ['https:', 'http:', 'file:'].includes(url.protocol) ? url.href : ''; }
+    catch { return ''; }
+  };
+  const assetLink = (label, value, className = 'project-link') => {
+    const url = safeURL(value);
+    return url ? `<a class="${className}" href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${label} ↗</a>` : `<span class="demo-link-placeholder">${label} · add link</span>`;
+  };
+  const grid = $('#demo-projects');
+  grid.innerHTML = PORTFOLIO_DEMO.projects.map(p => {
+   
+const screenshot = safeURL(p.screenshot);
+
+const preview = screenshot
+  ? `<img
+       class="demo-project-image"
+       src="${escapeHTML(screenshot)}"
+       alt="${escapeHTML(p.title)} screenshot"
+       loading="lazy"
+     >`
+  : `<div class="demo-project-preview compact-preview">
+       <div class="demo-preview-flow">
+         ${p.preview.map((item, index) => `
+           ${index ? '<span class="demo-arrow" aria-hidden="true">→</span>' : ''}
+           <span>${escapeHTML(item)}</span>
+         `).join('')}
+       </div>
+     </div>`;
+
+return `<article class="glass-panel project-card"
+  data-demo-id="${escapeHTML(p.id)}"
+  data-categories="${escapeHTML(p.filter)}"
+  data-project-type="${escapeHTML(p.projectType)}">
+
+  <div class="project-card-main">
+    ${preview}
+
+    <span class="project-badge-tag">
+      ${escapeHTML(p.category)}
+    </span>
+
+    <span class="project-status ${
+      p.status.toLowerCase() === 'pending'
+        ? 'status-pending'
+        : p.status.toLowerCase() === 'completed'
+          ? 'status-completed'
+          : 'status-details'
+    }">${escapeHTML(p.status)}</span>
+
+    <h3 class="project-title">${escapeHTML(p.title)}</h3>
+
+    <p class="project-summary">${escapeHTML(p.summary)}</p>
+
+    <div class="project-tags">
+      ${p.tags.map(tag =>
+        `<span class="tech-tag">${escapeHTML(tag)}</span>`
+      ).join('')}
+    </div>
+  </div>
+
+  <div class="project-card-footer">
+    <button class="project-detail-trigger" type="button"
+      data-open-project="${escapeHTML(p.id)}">
+      View Case Study →
+    </button>
+
+    <div class="demo-project-links">
+      ${assetLink('GitHub', p.github)}
+      ${assetLink('Live demo', p.live)}
+    </div>
+  </div>
+</article>`;
+  }).join('');
+
+  
+
+const filterButtons = document.querySelectorAll('#projects .filter-btn');
+
+
+function filterProjects(selectedFilter) {
+
+  // Update the selected filter button
+  filterButtons.forEach(button => {
+    const isActive = button.dataset.filter === selectedFilter;
+
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+
+  // Show only projects that are not hidden
+  grid.querySelectorAll('.project-card').forEach(card => {
+    const project = PORTFOLIO_DEMO.projects.find(
+      item => item.id === card.dataset.demoId
+    );
+
+    const isVisible = project && project.hidden !== true;
+
+    const projectType = card.dataset.projectType;
+
+    const shouldShow =
+      isVisible &&
+      (
+        selectedFilter === 'all' ||
+        projectType === selectedFilter
+      );
+
+    card.classList.toggle('is-filtered-out', !shouldShow);
+  });
+}
+
+
+// Attach click events
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterProjects(button.dataset.filter);
+  });
+});
+
+
+  // Show all visible projects when the page first loads
+  filterProjects('all');
+
+  const modal = $('#project-modal');
+  let returnFocus = null;
+  let savedOverflow = '';
+
+  const block = (title, body) =>
+    `<section><h3 class="modal-section-title">${title}</h3><p class="stack-card-desc">${escapeHTML(body)}</p></section>`;
+
+  function openProject(id, trigger) {
+    const p = PORTFOLIO_DEMO.projects.find(
+      project => project.id === id && project.hidden !== true
+    );
+
+    if (!p) return;
+
+    returnFocus = trigger;
+
+    
+$('#modal-title').textContent = p.title;
+
+$('#modal-subtitle').textContent =
+  `${p.category} · ${p.projectType === 'solo' ? 'Solo Project' : 'Group Project'} · ${p.status}`;
+
+const section = (number, title, content, extraClass = '') => `
+  <section class="case-study-section ${extraClass}">
+    <div class="case-study-section-heading">
+      <span class="case-study-number">${number}</span>
+      <h3>${title}</h3>
+    </div>
+    ${content}
+  </section>
+`;
+
+const paragraph = value =>
+  `<p class="case-study-text">${escapeHTML(value || 'Details to be added.')}</p>`;
+
+const features = Array.isArray(p.features) ? p.features : [];
+
+$('#demo-modal-body').innerHTML = `
+  <div class="case-study-hero">
+    <span class="case-study-eyebrow">PROJECT OVERVIEW</span>
+    <p>${escapeHTML(p.summary)}</p>
+    <div class="case-study-tags">
+      ${p.tags.map(tag =>
+        `<span class="tech-tag">${escapeHTML(tag)}</span>`
+      ).join('')}
+    </div>
+  </div>
+
+  <div class="case-study-content">
+    ${section('01', 'The Problem', paragraph(p.problem))}
+
+    ${section('02', 'My Contribution', paragraph(p.contribution))}
+
+    ${section('03', 'The Approach', paragraph(p.approach))}
+
+    ${section('04', 'Architecture & Data Flow', `
+      <div class="case-study-architecture">
+        ${escapeHTML(p.architecture || 'Details to be added.')}
+      </div>
+    `)}
+
+    ${section('05', 'Key Features', `
+      <div class="case-study-feature-grid">
+        ${features.map((feature, index) => `
+          <div class="case-study-feature">
+            <span class="case-study-feature-number">
+              ${String(index + 1).padStart(2, '0')}
+            </span>
+            <p>${escapeHTML(feature)}</p>
+          </div>
+        `).join('')}
+      </div>
+    `)}
+
+    ${section('06', 'Challenges & Learning', `
+      <div class="case-study-two-column">
+        <div class="case-study-info-card">
+          <h4>Challenge</h4>
+          ${paragraph(p.challenge)}
+        </div>
+        <div class="case-study-info-card">
+          <h4>What I Learned</h4>
+          ${paragraph(p.learning)}
+        </div>
+      </div>
+    `)}
+
+    ${section('07', 'Evaluation & Limitations', `
+      <div class="case-study-two-column">
+        <div class="case-study-info-card">
+          <h4>Evaluation</h4>
+          ${paragraph(p.evaluation)}
+        </div>
+        <div class="case-study-info-card">
+          <h4>Limitations</h4>
+          ${paragraph(p.limitations)}
+        </div>
+      </div>
+    `)}
+
+    <div class="case-study-links">
+      ${assetLink('GitHub Repository', p.github)}
+      ${assetLink('Live Demo', p.live)}
+    </div>
+  </div>
+`;
+    savedOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    modal.querySelector('.project-modal-dialog').scrollTop = 0;
+    $('#modal-close-btn').focus();
+  }
+  function closeProject() {
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = savedOverflow;
+    if (returnFocus) returnFocus.focus();
+  }
+  grid.addEventListener('click',event=>{
+    const card = event.target.closest('[data-demo-id]');
+    if (!card || event.target.closest('a')) return;
+    openProject(card.dataset.demoId,card.querySelector('[data-open-project]'));
+  });
+  $('#modal-close-btn').addEventListener('click',closeProject);
+  $('#demo-modal-close').addEventListener('click',closeProject);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeProject();});
+
+  const resume = $('#resume-link');
+  const resumeURL = safeURL(PORTFOLIO_DEMO.resumeUrl);
+  if (resumeURL) { resume.href=resumeURL; resume.textContent='Download Resume'; resume.removeAttribute('aria-disabled'); resume.target='_blank'; resume.rel='noopener noreferrer'; }
+  if (PORTFOLIO_DEMO.email) $('#demo-email').textContent=PORTFOLIO_DEMO.email;
+
+  document
+  .getElementById("demo-contact-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const status = document.getElementById("contact-status");
+    const button = form.querySelector('button[type="submit"]');
+
+    if (form.dataset.sending === "true") return;
+    if (!form.reportValidity()) return;
+
+    if (form.action.includes("YOUR_FORM_ID")) {
+      status.textContent = "The contact form is not configured yet.";
+      return;
+    }
+
+    const originalButton = button.innerHTML;
+    const formData = new FormData(form);
+
+    form.dataset.sending = "true";
+    button.disabled = true;
+    button.textContent = "Sending…";
+    status.textContent = "";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json"
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission was not accepted.");
+      }
+
+      status.textContent =
+        "Thank you! Your message has been submitted successfully.";
+
+      form.reset();
+    } catch (error) {
+      status.textContent =
+        "We couldn’t confirm your submission. Please try again or email paritachauhan533@gmail.com.";
+    } finally {
+      form.dataset.sending = "false";
+      button.disabled = false;
+      button.innerHTML = originalButton;
+    }
+  });
+
+
+
+  
+  // Portfolio chatbot controller
+  (() => {
+    const wrapper = document.querySelector('.chatbot-wrapper');
+    const chat = document.querySelector('.chatbot-window');
+    const trigger = document.querySelector('.chatbot-trigger');
+    const closeButton = document.querySelector('.chatbot-close-btn');
+    const input = document.getElementById('chat-input');
+    const messages = document.getElementById('chat-messages');
+    const suggestions = document.getElementById('chat-suggestions');
+    const sendButton = document.getElementById('chat-send-btn');
+
+    if (!wrapper || !chat || !trigger || !input ||
+        !messages || !suggestions || !sendButton) {
+      console.error('Chatbot: one or more required HTML elements are missing.');
+      return;
+    }
+
+    const history = [];
+    let busy = false;
+
+    function toggleChat(open) {
+      wrapper.classList.toggle('open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+      chat.setAttribute('aria-hidden', String(!open));
+
+      if (open) input.focus();
+    }
+
+    trigger.addEventListener('click', () => {
+      toggleChat(!wrapper.classList.contains('open'));
+    });
+
+    closeButton?.addEventListener('click', () => toggleChat(false));
+
+    function addMessage(role, text) {
+      const bubble = document.createElement('div');
+      bubble.className = `chat-bubble ${role}`;
+      bubble.textContent = text;
+      messages.appendChild(bubble);
+      messages.scrollTop = messages.scrollHeight;
+      return bubble;
+    }
+
+    function showSuggestions(items) {
+      suggestions.replaceChildren();
+
+      (items || []).forEach((label) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'chip-btn';
+        button.textContent = label;
+        button.addEventListener('click', () => sendMessage(label));
+        suggestions.appendChild(button);
+      });
+    }
+
+    async function sendMessage(value) {
+      const text = (value ?? input.value).trim();
+      if (!text || busy) return;
+
+      input.value = '';
+      addMessage('user', text);
+
+      busy = true;
+      sendButton.disabled = true;
+
+      const pending = addMessage('assistant', 'Thinking...');
+
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: text,
+            history: history.slice(-6)
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`API returned ${response.status}`);
+        }
+
+        const data = await response.json();
+        const reply = data.reply || 'No response was returned.';
+        pending.textContent = reply;
+
+        history.push(
+          { role: 'user', content: text },
+          { role: 'assistant', content: reply }
+        );
+
+        if (history.length > 12) {
+          history.splice(0, history.length - 12);
+        }
+
+        showSuggestions(data.suggestions);
+
+        const targetId = {
+          scroll_to_projects: 'projects',
+          scroll_to_contact: 'contact'
+        }[data.action];
+
+        if (targetId) {
+          document.getElementById(targetId)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      } catch (error) {
+        console.error('Chatbot request failed:', error);
+        pending.textContent =
+          'Unable to connect. Check the backend and Ollama.';
+      } finally {
+        busy = false;
+        sendButton.disabled = false;
+        input.focus();
+      }
+    }
+
+    sendButton.addEventListener('click', () => sendMessage());
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' && !event.isComposing) {
+        event.preventDefault();
+        sendMessage();
+      }
+    });
+
+    showSuggestions([
+      'Tell me about my projects',
+      'What technologies do I use?',
+      'How can I contact you?'
+    ]);
+
+    chat.setAttribute('aria-hidden', 'true');
+  })();
+
+})();
+
+</script>
+
+
+
+
+  <script>
+(() => {
+  const input = document.getElementById("terminal-input");
+  const logs = document.getElementById("terminal-logs");
+  const dataElement = document.getElementById("portfolio-demo-data");
+
+  if (!input || !logs) return;
+
+  const profile = dataElement
+    ? JSON.parse(dataElement.textContent)
+    : {};
+
+  function addLine(text, isCommand = false) {
+    const line = document.createElement("div");
+
+    line.style.marginBottom = "8px";
+    line.style.whiteSpace = "pre-wrap";
+    line.style.overflowWrap = "anywhere";
+    line.style.color = isCommand ? "#10b981" : "#38bdf8";
+
+    line.textContent = isCommand
+      ? `parita@portfolio:~$ ${text}`
+      : text;
+
+    logs.appendChild(line);
+    logs.scrollTop = logs.scrollHeight;
+  }
+
+  const commands = {
+    help: () => [
+      "AVAILABLE COMMANDS",
+      "",
+      "about       About Parita",
+      "experience  View work experience",
+      "stack       View the sample skills",
+      "projects    List demo projects",
+      "contact     Show contact details",
+      "clear       Clear the terminal"
+    ].join("\n"),
+
+    about: () =>
+      `${profile.name || "Parita Chauhan"}\n` +
+      `${profile.role || "AI / ML Developer"}\n\n` +
+      "Building practical AI applications and automation workflows.",
+
+    experience: () =>
+      `AI / ML Developer: ${profile.aiMlMonths ?? 18} months\n` +
+      `Earlier AI & Automation role: ${profile.automationMonths ?? 1} month\n\n` +
+      "See Work Experience for company details and responsibilities.",
+
+    stack: () => [
+      "SAMPLE TOOLKIT",
+      "",
+      "Programming: Python, SQL, JavaScript",
+      "ML: scikit-learn, PyTorch",
+      "AI applications: NLP, OCR, RAG",
+      "Backend: FastAPI",
+      "Databases: PostgreSQL, Supabase",
+      "Deployment: Vercel, Render, Railway",
+      "",
+      "This is demo content. Keep only your confirmed skills."
+    ].join("\n"),
+
+    projects: () => {
+      const projects = profile.projects || [];
+
+      if (!projects.length) {
+        return "Explore the Projects section for case studies.";
+      }
+
+      return [
+        "DEMO PROJECTS",
+        "",
+        ...projects.map((project, index) =>
+          `${index + 1}. ${project.title}`
+        ),
+        "",
+        "Descriptions and results are illustrative.",
+        "Open Projects to view each case study."
+      ].join("\n");
+    },
+
+    contact: () => [
+      "CONTACT DETAILS",
+      "",
+      `Email: ${profile.email || "[Add your professional email]"}`,
+      "GitHub: https://github.com/pari12-1",
+      "LinkedIn: https://www.linkedin.com/in/parita-chauhan-474132291/",
+      "",
+      "The contact form currently provides a preview only."
+    ].join("\n")
+  };
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" || event.isComposing) return;
+
+    event.preventDefault();
+
+    const enteredText = input.value.trim();
+    const command = enteredText.toLowerCase();
+
+    input.value = "";
+
+    if (!command) return;
+
+    if (command === "clear") {
+      logs.replaceChildren();
+      return;
+    }
+
+    addLine(enteredText, true);
+
+    if (Object.prototype.hasOwnProperty.call(commands, command)) {
+      addLine(commands[command]());
+    } else {
+      addLine(
+        `Command not found: ${enteredText}\nType "help" for available commands.`
+      );
+    }
+  });
+})();
+</script>
+<script>
+(() => {
+  const button = document.getElementById("copy-portfolio-email");
+  const emailElement = document.getElementById("portfolio-email-address");
+  const feedback = document.getElementById("email-copy-feedback");
+
+  if (!button || !emailElement || !feedback) return;
+
+  let feedbackTimer;
+
+  function copyFallback(text) {
+    const field = document.createElement("textarea");
+
+    field.value = text;
+    field.setAttribute("readonly", "");
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+
+    document.body.appendChild(field);
+    field.select();
+    field.setSelectionRange(0, text.length);
+
+    try {
+      return document.execCommand("copy");
+    } finally {
+      field.remove();
+      button.focus();
+    }
+  }
+
+  button.addEventListener("click", async () => {
+    const email = emailElement.textContent.trim();
+    let copied = false;
+
+    button.disabled = true;
+
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(email);
+        copied = true;
+      } else {
+        copied = copyFallback(email);
+      }
+    } catch {
+      try {
+        copied = copyFallback(email);
+      } catch {
+        copied = false;
+      }
+    } finally {
+      button.disabled = false;
+    }
+
+    feedback.textContent = copied
+      ? "Copied!"
+      : "Please select and copy the email.";
+
+    clearTimeout(feedbackTimer);
+
+    feedbackTimer = setTimeout(() => {
+      feedback.textContent = "";
+    }, 3000);
+  });
+})();
+</script>
+<script>
+(() => {
+  const card = document.getElementById("hero-portrait-card");
+  if (!card) return;
+
+  const inner = card.querySelector(".hero-portrait-inner");
+  if (!inner) return;
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  let paused = false;
+  let angle = 0;
+
+  function flipCard() {
+    angle += 180;
+    inner.style.transform = `rotateY(${angle}deg)`;
+  }
+
+  function updateLabel() {
+    const action = reducedMotion.matches
+      ? "Show the other side"
+      : `${paused ? "Resume" : "Pause"} automatic flipping`;
+
+    card.setAttribute(
+      "aria-label",
+      `Photo and avatar of Parita Chauhan. ${action}`
+    );
+
+    card.setAttribute("aria-pressed", String(paused));
+    card.title = reducedMotion.matches
+      ? "Click to flip"
+      : `Click to ${paused ? "resume" : "pause"}`;
+  }
+
+  window.setInterval(() => {
+    if (
+      paused ||
+      reducedMotion.matches ||
+      document.hidden ||
+      card.matches(":hover, :focus-visible")
+    ) return;
+
+    flipCard();
+  }, 5000);
+
+  card.addEventListener("click", () => {
+    if (reducedMotion.matches) {
+      flipCard();
+    } else {
+      paused = !paused;
+    }
+
+    updateLabel();
+  });
+
+  reducedMotion.addEventListener("change", updateLabel);
+  updateLabel();
+})();
+</script>
+
+<script src="js/skills-stream.js?v=3" defer></script>
+<script src="js/certificate-carousel.js"></script>
+<script src="js/experience-slider.js" defer></script>
+</body>
+</html>

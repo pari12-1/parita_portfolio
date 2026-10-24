@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <radialGradient id="plasmaGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="35%" stop-color="#00f0ff"/>
+      <stop offset="70%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer Tech Ring -->
+  <circle cx="64" cy="64" r="58" fill="none" stroke="url(#coreGrad)" stroke-width="2" stroke-dasharray="6 8" opacity="0.7"/>
+  <circle cx="64" cy="64" r="50" fill="#060913" stroke="rgba(0,240,255,0.4)" stroke-width="2"/>
+  
+  <!-- Rotating Orbit Rings -->
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="#00f0ff" stroke-width="2.5" transform="rotate(-30 64 64)" stroke-dasharray="12 4" opacity="0.9"/>
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="#8b5cf6" stroke-width="2.5" transform="rotate(35 64 64)" stroke-dasharray="12 4" opacity="0.9"/>
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="#ec4899" stroke-width="1.5" transform="rotate(85 64 64)" stroke-dasharray="6 6" opacity="0.6"/>
+  
+  <!-- Central Glowing Plasma Core -->
+  <circle cx="64" cy="64" r="22" fill="url(#plasmaGlow)" filter="url(#glowFilter)"/>
+  <circle cx="64" cy="64" r="8" fill="#ffffff"/>
+  
+  <!-- Energy Nodes -->
+  <circle cx="64" cy="14" r="3" fill="#00f0ff"/>
+  <circle cx="64" cy="114" r="3" fill="#8b5cf6"/>
+  <circle cx="14" cy="64" r="3" fill="#ec4899"/>
+  <circle cx="114" cy="64" r="3" fill="#00f0ff"/>
+</svg>

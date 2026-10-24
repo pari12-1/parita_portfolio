@@ -1,0 +1,298 @@
+
+/* ==========================================
+   SKILLS STREAM — TRANSPARENT ENCRYPTION
+   ========================================== */
+
+#stack .skills-stream {
+  --card-width: 400px;
+  --card-gap: 60px;
+
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  height: 390px;
+
+  /* Extend the slider across the viewport */
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+
+  /* Remove the unwanted outer blue box */
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  touch-action: pan-y;
+}
+
+/* Remove any pseudo-element frame from the stage */
+#stack .skills-stream::before,
+#stack .skills-stream::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Particles stay inside the slider */
+#stack .skills-stream__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* Moving card track */
+#stack .skills-stream__track {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  align-items: stretch;
+  gap: var(--card-gap);
+
+  width: max-content;
+  height: 278px;
+
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  will-change: transform;
+}
+
+#stack .skills-stream__track.is-dragging {
+  cursor: grabbing;
+}
+
+/* Individual cards */
+#stack .skills-stream__card {
+  position: relative;
+  flex: 0 0 var(--card-width);
+  width: var(--card-width);
+  height: 278px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 27px 28px;
+
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-radius: 12px;
+
+  color: var(--text-main, #e8f2ff);
+  background: rgba(4, 10, 20, 0.96);
+
+  box-shadow: none;
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+/* Subtle grid inside cards only */
+#stack .skills-stream__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      rgba(0, 240, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 240, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+/* Card currently being scanned */
+#stack .skills-stream__card.is-scanned {
+  border-color: rgba(0, 240, 255, 0.65);
+  background: rgba(4, 12, 22, 0.98);
+  box-shadow: none;
+}
+
+#stack .skills-stream__eyebrow,
+#stack .skills-stream__card h3,
+#stack .skills-stream__card p,
+#stack .skills-stream__tags {
+  position: relative;
+  z-index: 1;
+}
+
+#stack .skills-stream__eyebrow {
+  color: #00f0ff;
+  font: 600 0.72rem/1.2 var(--font-mono, monospace);
+  letter-spacing: 0.13em;
+}
+
+#stack .skills-stream__card h3 {
+  margin: 2px 0 0;
+  font-family: var(--font-display, sans-serif);
+  font-size: 1.27rem;
+  line-height: 1.35;
+}
+
+#stack .skills-stream__card p {
+  margin: 0;
+  color: #a8b6c9;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+#stack .skills-stream__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: auto;
+}
+
+#stack .skills-stream__tags span {
+  padding: 5px 9px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 5px;
+  background: rgba(0, 240, 255, 0.045);
+  color: #c8faff;
+  font: 0.68rem/1.3 var(--font-mono, monospace);
+}
+
+/* Encrypted text revealed by the scanner */
+
+/* Encrypted data overlay revealed by the scanner */
+#skillsStream .skills-stream__ascii {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  padding: 22px 20px;
+
+  /* Dark, translucent data layer */
+  background: rgba(2, 7, 15, 0.94);
+  color: rgba(104, 230, 255, 0.9);
+
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 1px;
+
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  text-shadow:
+    0 0 5px rgba(0, 240, 255, 0.45),
+    0 0 12px rgba(0, 240, 255, 0.16);
+
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+
+  clip-path: inset(0 100% 0 0);
+}
+
+
+/* Fixed scanner beam */
+#stack .skills-stream__scanline {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+
+  transform: translateX(-50%);
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 240, 255, 0.65) 15%,
+    #eaffff 50%,
+    rgba(0, 240, 255, 0.8) 85%,
+    transparent 100%
+  );
+
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.45);
+}
+
+/* Drag hint */
+#stack .skills-stream__hint {
+  position: absolute;
+  z-index: 5;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: rgba(179, 220, 232, 0.65);
+  font: 10px/1 var(--font-mono, monospace);
+  letter-spacing: 0.18em;
+  pointer-events: none;
+}
+
+#stack .skills-stream__hint span {
+  width: 26px;
+  height: 1px;
+  background: rgba(0, 240, 255, 0.4);
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  #stack .skills-stream {
+    height: 350px;
+  }
+
+  #stack .skills-stream__track {
+    top: 30px;
+    height: 270px;
+    gap: 18px;
+  }
+
+  #stack .skills-stream__card {
+    flex-basis: min(82vw, 340px);
+    width: min(82vw, 340px);
+    height: 270px;
+    padding: 22px;
+  }
+
+  #stack .skills-stream__card h3 {
+    font-size: 1.1rem;
+  }
+
+  #stack .skills-stream__ascii {
+    padding: 14px;
+    font-size: 10px;
+    line-height: 1.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #stack .skills-stream__track {
+    scroll-behavior: auto;
+  }
+}
+
+
