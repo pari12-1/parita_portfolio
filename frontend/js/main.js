@@ -466,8 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = 'Transmitting to Neural Gateway...';
 
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/contact', {
-          method: 'POST',
+          const res = await fetch('https://parita-portfolio.onrender.com/api/contact', {
+            method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, message })
         });
