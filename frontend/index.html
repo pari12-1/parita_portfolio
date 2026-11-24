@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="css/glassmorphism.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/chatbot.css">
-  <link rel="stylesheet" href="css/skills-stream.css?v=4">
+  <link rel="stylesheet" href="css/skills-stream.css?v=5">
   <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="stylesheet" href="css/certificate-carousel.css?v=1">
 </head>
@@ -242,7 +242,15 @@
 
             <div class="hero-cta-group">
               <!-- EDIT: set resumeUrl in PORTFOLIO_DEMO below to enable this link. -->
-              <a id="resume-link" class="btn-cyber-secondary" role="link" aria-disabled="true">Resume · coming soon</a>
+              <a
+                id="resume-link"
+                class="btn-cyber-secondary"
+                href="assets/parita-chauhan-resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
               <a href="#projects" class="btn-cyber-primary">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                   <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -329,6 +337,7 @@
         <div id="demo-projects" class="projects-grid"></div>
         <noscript><p class="demo-note">Enable JavaScript to view the three demo project cards and their case studies.</p></noscript>
       </section>
+
 
 
       <section id="experience" class="content-section">
@@ -1165,7 +1174,7 @@
   "aiMlMonths": 18,
   "automationMonths": 1,
   "email": "paritachauhan533@gmail.com",
-  "resumeUrl": "",
+  "resumeUrl": "assets/parita-chauhan-resume.pdf",
   
 "projects": [
  
@@ -1600,7 +1609,7 @@ $('#demo-modal-body').innerHTML = `
 
   const resume = $('#resume-link');
   const resumeURL = safeURL(PORTFOLIO_DEMO.resumeUrl);
-  if (resumeURL) { resume.href=resumeURL; resume.textContent='Download Resume'; resume.removeAttribute('aria-disabled'); resume.target='_blank'; resume.rel='noopener noreferrer'; }
+  if (resumeURL) { resume.href=resumeURL; resume.textContent='Resume'; resume.removeAttribute('aria-disabled'); resume.target='_blank'; resume.rel='noopener noreferrer'; }
   if (PORTFOLIO_DEMO.email) $('#demo-email').textContent=PORTFOLIO_DEMO.email;
 
   document
