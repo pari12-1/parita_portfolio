@@ -1,9 +1,9 @@
-
 import asyncio
 import json
 import re
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+import os
 
 import requests
 
@@ -12,8 +12,14 @@ import requests
 # Ollama configuration
 # --------------------------------------------------
 
-OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
-OLLAMA_MODEL = "qwen2.5:3b"
+OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY", "").strip()
+
+if OLLAMA_API_KEY:
+    OLLAMA_URL = "https://ollama.com/api/chat"
+    OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "gemma4:31b")
+else:
+    OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
+    OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:3b")
 
 REQUEST_TIMEOUT = (5, 180)
 MAX_HISTORY_MESSAGES = 6
@@ -196,7 +202,6 @@ def get_technology_response(
     if not any(term in query for term in technology_terms):
         return None
 
-    
     try:
         data = json.loads(portfolio_context)
     except (json.JSONDecodeError, TypeError):
@@ -217,7 +222,6 @@ def get_technology_response(
 
     selected_projects = matching_projects or projects
 
-   
     lines = []
 
     for project in selected_projects:
@@ -261,6 +265,7 @@ def get_technology_response(
         "reply": reply,
         "suggestions": DEFAULT_SUGGESTIONS
     }
+
 
 # --------------------------------------------------
 # Fast answers for contact questions
@@ -414,6 +419,10 @@ async def answer_chat_message(
         response = await asyncio.to_thread(
             requests.post,
             OLLAMA_URL,
+            headers=(
+                {"Authorization": f"Bearer {OLLAMA_API_KEY}"}
+                if OLLAMA_API_KEY else {}
+            ),
             json={
                 "model": OLLAMA_MODEL,
                 "messages": messages,
