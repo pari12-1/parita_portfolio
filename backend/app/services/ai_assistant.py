@@ -374,112 +374,68 @@ async def answer_chat_message(
     message: str,
     history: Optional[List[Dict[str, str]]] = None
 ) -> Dict[str, Any]:
-    """
-    Answer portfolio questions using fast local responses
-    where possible, and Ollama for other questions.
-    """
+    """Answer conversationally using portfolio facts and recent chat history."""
+
+    def reply(text: str) -> Dict[str, Any]:
+        return {"reply": text, "suggestions": []}
 
     if not isinstance(message, str) or not message.strip():
-        return {
-            "reply": "Please enter a question about the portfolio.",
-            "suggestions": DEFAULT_SUGGESTIONS
-        }
+        return reply("What would you like to know about Parita?")
 
-    message = message.strip()
+    api_key = os.getenv("GROQ_API_KEY", "").strip()
+    if not api_key:
+        print("Portfolio chatbot: GROQ_API_KEY is missing.")
+        return reply("The portfolio assistant is temporarily unavailable.")
 
     try:
-        # Load the current source data for every request.
-        portfolio_context = build_portfolio_context()
+        context = build_portfolio_context()
+        chat_messages = build_messages(message.strip(), history, context)
 
-        # Avoid model generation for simple factual questions.
-        fast_answer = get_technology_response(
-            message,
-            portfolio_context
+        chat_messages[0]["content"] += (
+            "\n\nREPLY FORMAT:\n"
+            "Speak to the visitor naturally. For a greeting or a simple "
+            "question, use one or two sentences. Use conversation history "
+            "to understand follow-ups such as 'how did she build it?'. "
+            "If the reference is ambiguous, ask one short clarification. "
+            "For a multi-part answer, use **bold headings** on their own "
+            "lines and short bullet points beginning with '- '. "
+            "Put each bullet on its own line. When listing technology stacks, "
+            "group related tools on one bullet instead of listing every tool "
+            "on a separate line. Use only facts in the portfolio data. "
+            "Do not use tables, raw HTML, or code fences."
         )
 
-        if fast_answer is not None:
-            return fast_answer
-
-        fast_answer = get_contact_response(
-            message,
-            portfolio_context
-        )
-
-        if fast_answer is not None:
-            return fast_answer
-
-        messages = build_messages(
-            message,
-            history,
-            portfolio_context
-        )
-
-        # requests is blocking, so run it in a worker thread
-        # instead of blocking FastAPI's asynchronous event loop.
         response = await asyncio.to_thread(
             requests.post,
-            OLLAMA_URL,
-            headers=(
-                {"Authorization": f"Bearer {OLLAMA_API_KEY}"}
-                if OLLAMA_API_KEY else {}
-            ),
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}"},
             json={
-                "model": OLLAMA_MODEL,
-                "messages": messages,
-                "stream": False,
-                "keep_alive": "10m",
-                "options": {
-                    "temperature": 0.1,
-                    "num_predict": MAX_GENERATED_TOKENS,
-                    "num_ctx": 4096
-                }
+                "model": "openai/gpt-oss-20b",
+                "messages": chat_messages,
+                "reasoning_effort": "low",
+                "max_completion_tokens": 1500,
+                "stream": False
             },
-            timeout=REQUEST_TIMEOUT
+            timeout=(5, 45)
         )
+
+        if response.status_code == 429:
+            print("Portfolio chatbot: Groq free usage limit reached.")
+            return reply(
+                "I’ve reached my free usage limit for now. "
+                "You can still explore Parita’s work in the Projects section."
+            )
 
         response.raise_for_status()
+        choices = response.json().get("choices") or []
+        if choices:
+            answer = choices[0].get("message", {}).get("content")
+            if isinstance(answer, str) and answer.strip():
+                return reply(answer.strip())
 
-        data = response.json()
-        reply = data.get("message", {}).get("content", "").strip()
+        print("Portfolio chatbot: Groq returned no answer text.")
 
-        # Diagnostic information for your backend terminal.
-        print("Ollama done:", data.get("done"))
-        print("Ollama finish reason:", data.get("done_reason"))
-        print("Ollama response characters:", len(reply))
+    except (requests.RequestException, OSError, ValueError) as exc:
+        print(f"Portfolio chatbot error: {type(exc).__name__}: {exc}")
 
-        if not reply:
-            return get_intelligent_fallback_response(message)
-
-        result = {
-            "reply": reply,
-            "suggestions": DEFAULT_SUGGESTIONS
-        }
-
-        query = message.lower()
-
-        # Set UI actions only when appropriate.
-        if any(
-            word in query
-            for word in ("contact", "email", "hire", "resume", "cv")
-        ):
-            result["action"] = "scroll_to_contact"
-
-        elif any(
-            word in query
-            for word in ("project", "projects", "portfolio")
-        ):
-            result["action"] = "scroll_to_projects"
-
-        return result
-
-    except (
-        requests.RequestException,
-        ValueError,
-        OSError
-    ) as exc:
-        print(
-            f"Portfolio chatbot error: "
-            f"{type(exc).__name__}: {exc}"
-        )
-
-        return get_intelligent_fallback_response(message)
+    return reply("I couldn’t load an answer just now. Please try again.")

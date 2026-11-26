@@ -1136,8 +1136,9 @@
 
         <!-- Chat messages container -->
         <div id="chat-messages" class="chatbot-messages" role="log" aria-live="polite" aria-label="Conversation">
-          <div class="chat-bubble assistant">Hi! Ask me about Parita’s experience or explore the demo projects and certificates. This is a rule-based FAQ preview.</div>
-        </div>
+        <div class="chat-bubble assistant">
+          Hi! I’m Parita’s portfolio assistant. What would you like to know about her work?
+        </div>        
 
         <!-- Suggestion Chips -->
         <div id="chat-suggestions" class="chatbot-suggestions">
@@ -1701,6 +1702,68 @@ $('#demo-modal-body').innerHTML = `
 
     closeButton?.addEventListener('click', () => toggleChat(false));
 
+    function renderAssistantReply(bubble, text) {
+  const content = document.createDocumentFragment();
+  let currentList = null;
+
+  function appendInline(parent, value) {
+    // Build real bold elements while treating all other text as plain text.
+    for (const part of value.split(/(\*\*[^*\n]+\*\*)/g)) {
+      if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+        const strong = document.createElement('strong');
+        strong.textContent = part.slice(2, -2);
+        parent.appendChild(strong);
+      } else {
+        parent.appendChild(document.createTextNode(part));
+      }
+    }
+  }
+
+  for (const rawLine of text.split(/\r?\n/)) {
+    const line = rawLine.trim();
+
+    if (!line) {
+      currentList = null;
+      continue;
+    }
+
+    const bullet = line.match(/^[-*•]\s+(.+)$/);
+    const numbered = line.match(/^(\d+)[.)]\s+(.+)$/);
+
+    if (bullet || numbered) {
+      const tag = numbered ? 'ol' : 'ul';
+
+      if (!currentList || currentList.localName !== tag) {
+        currentList = document.createElement(tag);
+        if (numbered) currentList.start = Number(numbered[1]);
+        content.appendChild(currentList);
+      }
+
+      const item = document.createElement('li');
+      appendInline(item, numbered ? numbered[2] : bullet[1]);
+      currentList.appendChild(item);
+      continue;
+    }
+
+    currentList = null;
+
+    const heading = line.match(/^#{1,6}\s+(.+)$/);
+    const paragraph = document.createElement('p');
+
+    if (heading) {
+      const strong = document.createElement('strong');
+      appendInline(strong, heading[1]);
+      paragraph.appendChild(strong);
+    } else {
+      appendInline(paragraph, line);
+    }
+
+    content.appendChild(paragraph);
+  }
+
+  bubble.replaceChildren(content);
+}
+
     function addMessage(role, text) {
       const bubble = document.createElement('div');
       bubble.className = `chat-bubble ${role}`;
@@ -1751,7 +1814,8 @@ $('#demo-modal-body').innerHTML = `
 
         const data = await response.json();
         const reply = data.reply || 'No response was returned.';
-        pending.textContent = reply;
+        renderAssistantReply(pending, reply);
+        messages.scrollTop = messages.scrollHeight;
 
         history.push(
           { role: 'user', content: text },
@@ -1807,9 +1871,6 @@ $('#demo-modal-body').innerHTML = `
 })();
 
 </script>
-
-
-
 
   <script>
 (() => {

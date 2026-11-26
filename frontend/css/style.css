@@ -2890,3 +2890,34 @@ body {
     gap: 12px;
   }
 }
+
+.chat-bubble.assistant > p,
+.chat-bubble.assistant > ul,
+.chat-bubble.assistant > ol {
+  margin: 0;
+}
+
+.chat-bubble.assistant > * + * {
+  margin-top: 0.45rem;
+}
+
+.chat-bubble.assistant > ul,
+.chat-bubble.assistant > ol {
+  padding-inline-start: 1.25rem;
+}
+
+.chat-bubble.assistant > ul {
+  list-style: disc outside;
+}
+
+.chat-bubble.assistant > ol {
+  list-style: decimal outside;
+}
+
+.chat-bubble.assistant li + li {
+  margin-top: 0.2rem;
+}
+
+.chat-bubble.assistant strong {
+  font-weight: 700;
+}
