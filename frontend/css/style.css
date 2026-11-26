@@ -2921,3 +2921,123 @@ body {
 .chat-bubble.assistant strong {
   font-weight: 700;
 }
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-sidebar {
+    position: fixed;
+    inset: auto 0 0;
+    width: 100%;
+    height: auto;
+    max-height: 85dvh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    overflow-y: auto;
+    padding: 6px 12px calc(6px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    flex-shrink: 0;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--neon-cyan);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .nav-sidebar .nav-menu,
+  .nav-sidebar .nav-footer-controls {
+    display: none;
+  }
+
+  .nav-sidebar.is-open .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin: 8px 0 0;
+    padding: 0;
+    gap: 6px;
+  }
+
+  .nav-sidebar .nav-item {
+    min-width: 0;
+  }
+
+  .nav-sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    width: 100%;
+    min-height: 44px;
+    height: auto;
+    padding: 8px;
+    box-sizing: border-box;
+    transform: none;
+  }
+
+  .nav-sidebar .nav-link svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Reuse the desktop tooltip text as a normal mobile label. */
+  .nav-sidebar .nav-tooltip,
+  .nav-sidebar .nav-item:hover .nav-tooltip {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    background: transparent;
+    backdrop-filter: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    color: inherit;
+    font-size: 0.8rem;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .nav-sidebar .nav-link.active::before {
+    display: none;
+  }
+
+  .nav-sidebar.is-open .nav-footer-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .nav-sidebar .nav-tool-btn {
+    width: auto;
+    min-height: 44px;
+    gap: 5px;
+    padding: 0 8px;
+    text-decoration: none;
+  }
+
+  .nav-tool-btn::after {
+    content: attr(data-label);
+    font-size: 0.75rem;
+  }
+}

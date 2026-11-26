@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/chatbot.css">
   <link rel="stylesheet" href="css/skills-stream.css?v=5">
-  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="stylesheet" href="css/style.css?v=6">
   <link rel="stylesheet" href="css/certificate-carousel.css?v=1">
 </head>
 <body class="portfolio-demo">
@@ -40,11 +40,19 @@
          LEFT SIDE NAVIGATION BAR (Vertical Glass Dock)
          ========================================================= -->
     <nav class="nav-sidebar" aria-label="Main Navigation">
-      <!-- Top Brand / Neural Core -->
+      <button
+        type="button"
+        class="mobile-nav-toggle"
+        aria-expanded="false"
+        aria-controls="portfolio-nav-links portfolio-nav-profiles"
+      >
+        <span aria-hidden="true">☰</span>
+        <span>Menu</span>
+      </button>
 
 
       <!-- Middle Navigation Links -->
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="portfolio-nav-links">
         <li class="nav-item">
           <a href="#hero" class="nav-link active" title="Home" aria-label="Home">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,16 +104,16 @@
       </ul>
 
       <!-- Bottom Dock Controls -->
-      <div class="nav-footer-controls">
-        <a href="https://github.com/pari12-1" target="_blank" rel="noreferrer" class="nav-tool-btn" title="GitHub Profile">
+      <div class="nav-footer-controls" id="portfolio-nav-profiles">
+        <a href="https://github.com/pari12-1" target="_blank" rel="noreferrer" class="nav-tool-btn" title="GitHub Profile" data-label="GitHub">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"></path>
           </svg>
         </a>
-        <a href="https://www.linkedin.com/in/parita-chauhan-474132291/" target="_blank" rel="noreferrer" class="nav-tool-btn" title="LinkedIn Profile">
+        <a href="https://www.linkedin.com/in/parita-chauhan-474132291/" target="_blank" rel="noreferrer" class="nav-tool-btn" title="LinkedIn Profile" data-label="GitHub">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
+          </svg> </a>
                     
            <!-- LeetCode Profile -->
         <a
@@ -115,6 +123,7 @@
           class="nav-tool-btn"
           title="LeetCode Profile"
           aria-label="Open Parita’s LeetCode profile"
+          data-label="GitHub"
         >
           <img
             src="https://cdn.simpleicons.org/leetcode/64748B"
@@ -123,7 +132,7 @@
             height="18"
           >
         </a>
-        </a>
+       
       </div>
     </nav>
 
@@ -634,13 +643,13 @@
           <p class="demo-meta">
             Interested in AI / ML development and automation opportunities.
           </p>
-          <p class="demo-meta">Surat , AI/ML Developer</p>
+          <p class="demo-meta">Surat, AI/ML Developer</p>
           </article>
                 <article class="glass-panel stack-card">
         <span class="glow-pill purple">EDUCATION</span>
 
         <h3 class="stack-card-title">
-          Bachelor’s Degree in Computer Science
+          Bachelor Of Computer Applications (BCA)
         </h3>
 
         <p class="demo-company">
@@ -978,7 +987,7 @@
 
       <p class="demo-meta">
         Email:
-        <span id="demo-email">[Add your professional email]</span>
+        <span id="demo-email">paritachauhan533@gmail.com</span>
       </p>
 
       <!-- Keep this ID for compatibility with your current demo script. -->
@@ -1038,7 +1047,7 @@
           class="btn-cyber-primary"
           style="width: 100%;"
         >
-          Send the Encrypted Code
+          Send the Message
         </button>
 
         <div
@@ -1059,7 +1068,7 @@
 <footer class="site-footer"><p>© 2026 Parita Chauhan · AI / ML Developer</p><p class="demo-meta">Portfolio preview · Sample projects, responsibilities, skills, and certificates are labeled.</p></footer></main>
     <div id="project-modal" class="project-modal-backdrop" aria-hidden="true" aria-modal="true" aria-labelledby="modal-title" role="dialog">
       <div class="project-modal-dialog">
-        <div class="modal-header"><div><span class="glow-pill purple">DEMO CASE STUDY</span><h2 id="modal-title" class="modal-title"></h2><p id="modal-subtitle" class="demo-meta"></p></div><button id="modal-close-btn" class="modal-close-btn" aria-label="Close project details">✕</button></div>
+        <div class="modal-header"><div><h2 id="modal-title" class="modal-title"></h2><p id="modal-subtitle" class="demo-meta"></p></div><button id="modal-close-btn" class="modal-close-btn" aria-label="Close project details">✕</button></div>
         <div id="demo-modal-body" class="modal-body"></div>
         <div class="modal-footer"><button id="demo-modal-close" class="btn-cyber-secondary">Close Case Study</button></div>
       </div>
@@ -2125,5 +2134,76 @@ $('#demo-modal-body').innerHTML = `
 <script src="js/skills-stream.js?v=3" defer></script>
 <script src="js/certificate-carousel.js"></script>
 <script src="js/experience-slider.js" defer></script>
+
+<script>
+  (() => {
+    const nav = document.querySelector('.nav-sidebar');
+    const toggle = nav?.querySelector('.mobile-nav-toggle');
+    if (!toggle) return;
+
+    function setOpen(open) {
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    }
+
+    toggle.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('is-open'));
+    });
+
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!nav.contains(event.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('is-open')) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.matchMedia('(max-width: 768px)').addEventListener('change', () => {
+      setOpen(false);
+    });
+        const sections = [...nav.querySelectorAll('.nav-menu a[href^="#"]')]
+      .map(link => ({
+        link,
+        section: document.getElementById(link.hash.slice(1))
+      }))
+      .filter(item => item.section);
+
+    function updateActiveLink() {
+      if (!sections.length) return;
+
+      const marker = window.innerHeight * 0.3;
+      const atBottom =
+        window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 2;
+
+      let current = sections[0];
+      for (const item of sections) {
+        if (item.section.getBoundingClientRect().top <= marker) {
+          current = item;
+        }
+      }
+      if (atBottom) current = sections[sections.length - 1];
+
+      for (const item of sections) {
+        const active = item === current;
+        item.link.classList.toggle('active', active);
+
+        if (active) item.link.setAttribute('aria-current', 'location');
+        else item.link.removeAttribute('aria-current');
+      }
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    window.addEventListener('resize', updateActiveLink);
+    updateActiveLink();
+  })();
+</script>
 </body>
 </html>
